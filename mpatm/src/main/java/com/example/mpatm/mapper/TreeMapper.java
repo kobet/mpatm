@@ -10,7 +10,7 @@ import com.example.mpatm.model.TreeNode;
 @Mapper
 public interface TreeMapper {
 	
-	@Select("")
+	@Select("SELECT tree_id as id,parent as pId,name,open FROM TREE")
 	List<TreeNode> getTreeList();
 
 }
