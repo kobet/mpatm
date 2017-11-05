@@ -10,12 +10,20 @@
 		href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
 		rel="stylesheet"></link>
 	<link rel="stylesheet" th:href="@{/css/bootstrapv3.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/zTreeStyle.css}"></link>
+	
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/jquery.ztree.core-3.2.min.js}" ></script>
+<script type="text/javascript" th:src="@{/js/jquery.ztree.excheck-3.2.min.js}" ></script>
+
+<script type="text/javascript" th:src="@{/js/business/tree.js}" ></script> 
+
 </head>
 <body>
-	<div id="tbk_header" style="width: 85%; margin: 0 auto">
-		<th:block th:include="common/_menu :: div"> default</th:block>
+<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
 	</div>
+
 </body>
 </html>

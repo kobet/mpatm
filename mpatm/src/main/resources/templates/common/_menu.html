@@ -1,0 +1,28 @@
+<div>
+	<nav class="navbar navbar-inverse" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand"  th:href="@{'/tree/list'}">看看树结构怎么样</a>
+			</div>
+			<div>
+				<!--向左对齐-->
+				<ul class="nav navbar-nav navbar-left">
+					<li class="dropdown"><a class="dropdown-toggle">
+							菜单1 </a></li>
+
+					<li class="dropdown"><a class="dropdown-toggle"> 菜单2 </a></li>
+				</ul>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="input-group">
+						<input id="searchVal" type="text" th:value="${searchMsg}"
+							class="form-control" /> <span class="input-group-btn">
+							<button id="searchBtn" class="btn btn-default" type="button">Go!</button>
+						</span>
+					</div>
+					<!-- /input-group -->
+				</form>
+
+			</div>
+		</div>
+	</nav>
+</div>
