@@ -12,10 +12,20 @@
 	<link rel="stylesheet" th:href="@{/css/bootstrapv3.css}"></link>
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet"></link>
+	<link rel="stylesheet" th:href="@{/css/zTreeStyle.css}"></link>
+    <script type="text/javascript" th:src="@{/js/jquery.ztree.core-3.2.min.js}" ></script>
+    <script type="text/javascript" th:src="@{/js/jquery.ztree.excheck-3.2.min.js}" ></script>
+    <script type="text/javascript" th:src="@{/js/business/tree.js}" ></script> 
 </head>
 <body>
 	<div id="tbk_header" style="width: 85%; margin: 0 auto">
 		<th:block th:include="common/_menu :: div"> default</th:block>
+	</div>
+	<h1 align="center">Pheobus Web自动化测试平台</h1>
+    <hr style=" height:2px;border:none;border-top: 2px ridge green;"></hr>
+    <div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
 	</div>
 </body>
 </html>
