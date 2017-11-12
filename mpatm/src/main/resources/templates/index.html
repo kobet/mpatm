@@ -6,26 +6,125 @@
 <head lang="en">
 <meta charset="UTF-8" />
 <title></title>
-	<link
-		href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
-		rel="stylesheet"></link>
-	<link rel="stylesheet" th:href="@{/css/bootstrapv3.css}"></link>
-	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet"></link>
-	<link rel="stylesheet" th:href="@{/css/zTreeStyle.css}"></link>
-    <script type="text/javascript" th:src="@{/js/jquery.ztree.core-3.2.min.js}" ></script>
-    <script type="text/javascript" th:src="@{/js/jquery.ztree.excheck-3.2.min.js}" ></script>
-    <script type="text/javascript" th:src="@{/js/business/tree.js}" ></script> 
+<link
+	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet"></link>
+
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" th:href="@{/css/zTreeStyle.css}"></link>
+
+<style type="text/css">
+.add_form {
+	width: 80%;
+	margin: auto;
+}
+</style>
+<script type="text/javascript"
+	th:src="@{/js/jquery.ztree.core-3.2.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/js/jquery.ztree.excheck-3.2.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/business/tree.js}"></script>
 </head>
 <body>
 	<div id="tbk_header" style="width: 85%; margin: 0 auto">
 		<th:block th:include="common/_menu :: div"> default</th:block>
 	</div>
 	<h1 align="center">Pheobus Web自动化测试平台</h1>
-    <hr style=" height:2px;border:none;border-top: 2px ridge green;"></hr>
-    <div class="zTreeDemoBackground left">
+	<hr style="height: 2px; border: none; border-top: 2px ridge green;"></hr>
+
+	<!-- 按钮触发模态框 -->
+	<button class="btn btn-primary btn-lg" data-toggle="modal"
+		data-target="#myModal">增加节点</button>
+
+	<!-- 树节点 -->
+	<div class="zTreeDemoBackground left">
 		<ul id="treeDemo" class="ztree"></ul>
 	</div>
+
+
+
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">接口设置</h4>
+				</div>
+				<form role="form" class="add_form" id="add_form">
+					<label for="interface_name">接口名称</label> <input type="text"
+						class="form-control" name="interface_name" placeholder="请输入名称" />
+
+					<div class="form-group">
+						<label for="module_name">模块</label> <select name="module_name"
+							class="form-control">
+							<option>accounting</option>
+							<option>transaction</option>
+							<option>settlement</option>
+							<option>order</option>
+						</select>
+					</div>
+
+					<label for="url_name">URL</label> <input type="text"
+						class="form-control" name="url_name" placeholder="请输入URL" /> <label
+						for="post_name">PORT</label> <input type="text"
+						class="form-control" name="post_name" placeholder="请输入PORT" />
+
+					<div class="form-group">
+						<label for="header_name">Header</label> <select name="header_name"
+							class="form-control">
+							<option>application/json</option>
+							<option>application/text</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="method_name">Method</label> <select name="method_name"
+							class="form-control">
+							<option>POST</option>
+							<option>GET</option>
+							<option>PUT</option>
+							<option>DELETE</option>
+						</select>
+					</div>
+
+					<label for="body_name">Body</label>
+					<textarea name="body_name" class="form-control" rows="3"></textarea>
+				</form>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						关闭</button>
+					<button type="button" id="addBtn" class="btn btn-primary">提交更改</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+	<script>
+		$(function() {
+			$('#myModal').modal('hide')
+		});
+	</script>
+	<script>
+		$(function() {
+			$('#myModal').on('hide.bs.modal', function() {
+				alert('嘿，我听说您喜欢模态框...');
+			})
+			$('#addBtn').click(function() {
+				var formData = $('#add_form').serialize();
+				alert('ddd' + formData);
+				return false;
+			});
+		});
+	</script>
 </body>
 </html>
