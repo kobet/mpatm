@@ -1,3 +1,14 @@
+/***
+		 * 树对象
+		 */
+var bTree = {
+		onClick : function(event, treeId, treeNode, clickFlag){
+			alert('测试节点点击事件');
+		}	
+};
+
+
+
 //设置
 		var setting = {
 			check: {
@@ -7,6 +18,11 @@
 				simpleData: {
 					enable: true
 				}
+			},
+			//事件
+			callback: {
+				//beforeClick: beforeClick,
+				onClick: bTree.onClick
 			}
 		};
 
@@ -69,12 +85,15 @@
 				  success: function(result){
 					  //alert(result);
 					  $.fn.zTree.init($("#treeDemo"), setting, result);
-						setCheck();
-						$("#py").bind("change", setCheck);
-						$("#sy").bind("change", setCheck);
-						$("#pn").bind("change", setCheck);
-						$("#sn").bind("change", setCheck);
+						//setCheck();
+						//$("#py").bind("change", setCheck);
+						//$("#sy").bind("change", setCheck);
+						//$("#pn").bind("change", setCheck);
+						//$("#sn").bind("change", setCheck);
 				  },
 				  dataType: "json"
 				});		
 		});
+		
+
+		
